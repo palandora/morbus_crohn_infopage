@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url("./font/SFProDisplay-Regular.woff") format("woff");
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url("./font/SFProDisplay-Medium.woff") format("woff");
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url("./font/SFProDisplay-Semibold.woff") format("woff");
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url("./font/SFProDisplay-Bold.woff") format("woff");
+    font-weight: 700;
+}
+
+$rem: 1/16;
+$orange: #ff7a00;
+$blue: #0b84f4;
+$green: #12c24e;
+$grey: #707070;
+$divider: #efefef;
+$bg_light_grey: #f8f8f8;
+//general
+$max_width: 1440px;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 100%;
+}
+body{
+    font: {
+        family: 'SF Pro Display', sans-serif;
+        weight: 400;
+    }
+}
+
+//font-styles-desktop
+h1,h2,h3{
+    word-wrap: break-word;
+}
+h1{
+    font-size: $rem * 76rem;
+    font-weight: 700;
+    line-height: $rem*84rem;
+}
+h2{
+    font-size: $rem * 62rem;
+    font-weight: 700;
+    line-height: $rem*72rem;
+}
+h3{
+    font-size: $rem * 52rem;
+    line-height: $rem *64rem;
+    font-weight: 700;
+}
+h4{
+    font-size: $rem * 20rem;
+    font-weight: 600;
+    line-height: $rem *24rem;
+}
+p,span{
+    font-size: $rem * 16rem;
+    font-weight: 500;
+    line-height: $rem *20rem;
+}
+span.overline{
+    font-weight: 700;
+    letter-spacing: $rem* .5rem;
+    text-transform: uppercase;
+}
+
+//UI 
+nav{
+    background-color: rgba(255,255,255,0.24);
+    border-bottom: 1px solid $divider;
+    .container{
+        margin: 0 auto;
+        max-width: $max_width;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 16px 28px;
+        //backdrop-filter: blur(10px);
+        img{
+            width: 40px;
+            margin-right: 8px;
+        }
+    }
+}
+.hero{
+    margin: 0 auto;
+    max-width: $max_width;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 88px 160px;
+    .overline{
+        margin-bottom: 8px;
+        color: $orange;
+    }
+    h1{
+        color: $orange;
+        margin-bottom: 16px;
+    }
+    h4{
+        color: $grey;
+    }
+}
+.teaser{
+    background: $bg_light_grey;
+    border-top: 1px solid $divider;
+    border-bottom: 1px solid $divider;
+    .container{
+        margin: 0 auto;
+        max-width: $max_width;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 24px 28px;
+        span{
+            text-align: center;
+            font-weight: 400;
+            color: $grey;
+        }
+    }
+}
+section{
+    background: $bg_light_grey;
+    padding: 80px 64px;
+    .card{
+        position: relative;
+        padding: 48px;
+        border-radius: 34px;
+        background: white;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+        .fab{
+            background: center/contain no-repeat url('/assets/icons/fab_black.png') ;
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            right:40px;
+            bottom: 40px;
+        }
+        .container_heading{
+            flex-grow:1;
+            display: flex;
+            padding-right: 64px;
+        }
+    }
+    .content-center .container_heading{
+        align-items: center;
+    }
+    .content-bottom .container_heading{
+        align-items: flex-end;
+    }
+}
+//tablet
+@media screen and (max-width: 880px) {
+    h1{
+        font-size: $rem * 44rem;
+        line-height: $rem*46rem;
+    }
+    
+    h2{
+        font-size: $rem * 34rem;
+        line-height: $rem*40rem;
+    }
+    
+    h3{
+        font-size: $rem * 24rem;
+        line-height: $rem *28rem;
+    }
+    
+    h4{
+        font-size: $rem * 18rem;
+        font-weight: 500;
+        line-height: $rem *22rem;
+    }
+    //paddings
+    .hero{
+        padding: 88px 64px;
+    }
+
+
+}
+
+//paddings_mobile
+@media screen and (max-width: 380px){
+    .hero{
+        padding: 40px 16px;
+    }
+
+}
+
