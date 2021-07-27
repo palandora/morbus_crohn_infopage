@@ -65,7 +65,7 @@ h3{
 }
 h4{
     font-size: $rem * 20rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: $rem *24rem;
 }
 p,span{
@@ -97,6 +97,7 @@ nav{
         }
     }
 }
+
 .hero{
     margin: 0 auto;
     max-width: $max_width;
@@ -118,6 +119,7 @@ nav{
         color: $grey;
     }
 }
+
 .teaser{
     background: $bg_light_grey;
     border-top: 1px solid $divider;
@@ -136,43 +138,85 @@ nav{
         }
     }
 }
+
 section{
     background: $bg_light_grey;
     padding: 80px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 700px;
+    //generic card styling
     .card{
+        overflow: hidden;
         position: relative;
         padding: 48px;
         border-radius: 34px;
         background: white;
-        height: 700px;
         display: flex;
         flex-direction: column;
+        h4{
+            margin-bottom: 8px;
+        }
         .fab{
-            background: center/contain no-repeat url('/assets/icons/fab_black.png') ;
+            z-index: 1;
             width: 64px;
             height: 64px;
             position: absolute;
             right:40px;
             bottom: 40px;
+            &.white{
+                background: center/contain no-repeat url('/assets/icons/fab_white.png');
+            }
+            &.black{
+                background: center/contain no-repeat url('/assets/icons/fab_black.png') ;
+            }
         }
         .container_heading{
+            z-index:1;
             flex-grow:1;
             display: flex;
-            padding-right: 64px;
+            h2{
+                color: white;
+                width: 100%;
+            }
+        }
+        img{
+            position: absolute;
+            left:50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 120%;
         }
     }
-    .content-center .container_heading{
-        align-items: center;
-    }
-    .content-bottom .container_heading{
-        align-items: flex-end;
-    }
 }
+
+//styles extended cards
+.card.extended{
+    grid-column: span 2;
+}
+.content-center .container_heading{
+    align-items: center;
+}
+.content-bottom .container_heading{
+    align-items: flex-end;
+    padding-right: 64px;
+}
+
+//section specific styles
+.stats h4, .symptoms h4{
+    color: $orange;
+}
+
+//card specific styles
+.card.cases{
+    background: #373043;
+}
+
 //tablet
 @media screen and (max-width: 880px) {
     h1{
-        font-size: $rem * 44rem;
-        line-height: $rem*46rem;
+        font-size: $rem * 48rem;
+        line-height: $rem*52rem;
     }
     
     h2{
@@ -190,9 +234,17 @@ section{
         font-weight: 500;
         line-height: $rem *22rem;
     }
-    //paddings
+
+    //General settings
     .hero{
         padding: 88px 64px;
+    }
+    section{
+        padding:40px;
+        grid-auto-rows: 550px;
+        .card img{
+            width: 165%;
+        }
     }
 
 
