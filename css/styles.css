@@ -64,6 +64,7 @@ h4 {
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.5rem;
+  color: #707070;
 }
 
 p, span {
@@ -166,12 +167,12 @@ nav .container img {
 
 section {
   background: #f8f8f8;
-  padding: 80px 64px;
+  padding: 64px 64px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 700px;
+  gap: 24px;
 }
 
 section .card {
@@ -187,14 +188,16 @@ section .card {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 650px;
 }
 
 section .card h4 {
+  z-index: 3;
   margin-bottom: 8px;
 }
 
 section .card .fab {
-  z-index: 1;
+  z-index: 3;
   width: 64px;
   height: 64px;
   position: absolute;
@@ -211,7 +214,7 @@ section .card .fab.black {
 }
 
 section .card .container_heading {
-  z-index: 1;
+  z-index: 3;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -226,12 +229,28 @@ section .card .container_heading h2 {
 }
 
 section .card img {
+  z-index: 1;
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  width: 100%;
   bottom: 0;
-  width: 120%;
+}
+
+section .card .form_bg {
+  z-index: 0;
+  position: absolute;
+}
+
+section .section_desc {
+  padding: 0 140px 0 48px;
+  margin-bottom: 103px;
+  grid-column: span 2;
+}
+
+section .section_desc h2 {
+  margin-bottom: 12px;
 }
 
 .card.extended {
@@ -251,12 +270,47 @@ section .card img {
   padding-right: 64px;
 }
 
-.stats h4, .symptoms h4 {
+.stats .accent, .symptoms .accent {
   color: #ff7a00;
 }
 
 .card.cases {
   background: #373043;
+}
+
+.card.cases img {
+  width: 120%;
+}
+
+.card.inflammations-gut .img_container {
+  z-index: 1;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+  bottom: -500px;
+}
+
+.card.inflammations-gut .img_container .form_inflammation {
+  position: absolute;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  background-color: blue;
+  left: 0;
+  top: 0;
+}
+
+.card.inflammations-gut .form_bg {
+  width: 600px;
+  height: 600px;
+  border-radius: 300px;
+  left: 50%;
+  bottom: -240px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #edeae6;
 }
 
 @media screen and (max-width: 880px) {
@@ -282,10 +336,24 @@ section .card img {
   }
   section {
     padding: 40px;
-    grid-auto-rows: 550px;
   }
-  section .card img {
-    width: 165%;
+  section .card {
+    height: 550px;
+    grid-column: span 2;
+  }
+  section .card .fab {
+    width: 56px;
+  }
+  section .section_desc {
+    padding: 0 48px;
+    margin-bottom: 56px;
+  }
+  .card.cases img {
+    width: 155%;
+  }
+  .card.inflammations-gut .img_container {
+    width: 480px;
+    margin-bottom: -44px;
   }
 }
 
