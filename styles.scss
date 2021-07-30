@@ -87,10 +87,11 @@ h4{
     line-height: $rem *25rem;
     color: $body;
 }
-p,span{
+p,span,a{
     font-size: $rem * 16rem;
     font-weight: 500;
     line-height: $rem *20rem;
+    color: $body;
 }
 span.overline{
     font-weight: 700;
@@ -171,6 +172,38 @@ nav{
     grid-template-columns: 1fr 1fr;
     max-width: 1240px;
     gap: 24px;
+    .container_card{
+        height: 650px;
+        position: relative;
+        outline: 1px solid sandybrown;
+        .card_new{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: all .5s ease;
+            .face{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-radius: 34px;
+                display: flex;
+                flex-direction: column;
+                backface-visibility: hidden;
+                &.front_face{
+                    padding: 48px;
+                    background: white;
+                }
+                &.back_face{
+                    background: salmon;
+                    transform: perspective(300px) rotateY(180deg);
+                }
+            }   
+        }
+        .card_new:hover{transform: perspective(600px) rotateY(180deg);}
+    }
+    
     .card{
         overflow: hidden;
         position: relative;
@@ -238,21 +271,50 @@ nav{
     
 }
 
+footer{
+    .container{
+        border-top: 1px solid $divider;
+        margin: 0 auto;
+        max-width: $max_width;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 28px;
+        .links{
+            display: flex;
+            align-items: center;
+            height: fit-content;
+            .seperator{
+                margin: 0 8px;
+                $size: 6px;
+                width: $size;
+                height: $size;
+                border-radius: $size/2;
+                background:$body;
+            }
+        }
+    }
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+    }
+
+}
+
 //styles extended cards
 .card.extended{
     grid-column: span 2;
 }
 
 //section specific styles
-//symptoms
 .stats h4.accent, .symptoms h4.accent, .symptoms h2.accent{
     color: $orange;
 }
-//therapy
+
 .therapy h2.accent, .therapy h4.accent{
     color: $blue;
 }
-//reasons
+
 .reasons h2.accent, .reasons h4.accent{
     color: $green;
 }
@@ -306,21 +368,22 @@ nav{
         }
     }
     &.diarrhea{
-        img.tp_1{
-            left: auto;
-            right: -104px;
-            bottom: 0;
-            width: 450px;
-            transform-origin: center center;
-            transform: rotate(8deg);
-        }
-        img.tp_2{
-            transform: translateX(0%);
-            left: auto;
-            width: 300px;
-            left:-80px;
-            bottom: 20%;
-        }
+        // img.tp_1{
+        //     left: auto;
+        //     right: -104px;
+        //     bottom: 0;
+        //     width: 450px;
+        //     transform-origin: center center;
+        //     transform: rotate(8deg);
+        // }
+        // img.tp_2{
+        //     transform: translateX(0%);
+        //     left: auto;
+        //     width: 300px;
+        //     left:-80px;
+        //     bottom: 20%;
+        // }
+        background: sandybrown;
     }
     &.fatigue{
         background-color: black;
@@ -494,7 +557,8 @@ nav{
         }
     }
     &.relaxation{
-        background: linear-gradient(323deg, rgba(139,148,121,1) 48%, rgba(78,99,117,1) 100%);
+        background: center/cover no-repeat url('/assets/freisteller/relaxation.png'), 
+        linear-gradient(323deg, rgba(139,148,121,1) 48%, rgba(78,99,117,1) 100%);
         h4:nth-child(2){color:white;}
     }
     &.surgery{

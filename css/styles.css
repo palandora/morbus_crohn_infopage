@@ -67,10 +67,11 @@ h4 {
   color: #3a3a3a;
 }
 
-p, span {
+p, span, a {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.25rem;
+  color: #3a3a3a;
 }
 
 span.overline {
@@ -189,6 +190,55 @@ nav .container img {
   gap: 24px;
 }
 
+.grid .container_card {
+  height: 650px;
+  position: relative;
+  outline: 1px solid sandybrown;
+}
+
+.grid .container_card .card_new {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.grid .container_card .card_new .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 34px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.grid .container_card .card_new .face.front_face {
+  padding: 48px;
+  background: white;
+}
+
+.grid .container_card .card_new .face.back_face {
+  background: salmon;
+  -webkit-transform: perspective(300px) rotateY(180deg);
+          transform: perspective(300px) rotateY(180deg);
+}
+
+.grid .container_card .card_new:hover {
+  -webkit-transform: perspective(600px) rotateY(180deg);
+          transform: perspective(600px) rotateY(180deg);
+}
+
 .grid .card {
   overflow: hidden;
   position: relative;
@@ -285,6 +335,47 @@ nav .container img {
   margin-bottom: 12px;
 }
 
+footer .container {
+  border-top: 1px solid #efefef;
+  margin: 0 auto;
+  max-width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 24px 28px;
+}
+
+footer .container .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+footer .container .links .seperator {
+  margin: 0 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: #3a3a3a;
+}
+
+footer a, footer a:hover, footer a:focus, footer a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
 .card.extended {
   grid-column: span 2;
 }
@@ -365,24 +456,8 @@ nav .container img {
   background-color: #edeae6;
 }
 
-.card.diarrhea img.tp_1 {
-  left: auto;
-  right: -104px;
-  bottom: 0;
-  width: 450px;
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-  -webkit-transform: rotate(8deg);
-          transform: rotate(8deg);
-}
-
-.card.diarrhea img.tp_2 {
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
-  left: auto;
-  width: 300px;
-  left: -80px;
-  bottom: 20%;
+.card.diarrhea {
+  background: sandybrown;
 }
 
 .card.fatigue {
@@ -601,7 +676,7 @@ nav .container img {
 }
 
 .card.relaxation {
-  background: linear-gradient(323deg, #8b9479 48%, #4e6375 100%);
+  background: center/cover no-repeat url("/assets/freisteller/relaxation.png"), linear-gradient(323deg, #8b9479 48%, #4e6375 100%);
 }
 
 .card.relaxation h4:nth-child(2) {
