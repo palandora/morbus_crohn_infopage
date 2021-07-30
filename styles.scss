@@ -24,7 +24,7 @@ $orange: #ff7a00;
 $blue: #0b84f4;
 $green: #12c24e;
 $grey: #707070;
-$body: #1e1e1e;
+$body: #3a3a3a;
 $divider: #efefef;
 $bg_light_grey: #f8f8f8;
 //general
@@ -43,6 +43,11 @@ body{
         family: 'SF Pro Display', sans-serif;
         weight: 400;
     }
+}
+
+@mixin cf_image_pos {
+    transform: translateX(0%);
+    left: auto; 
 }
 
 //font-styles-desktop
@@ -227,8 +232,13 @@ nav{
 }
 
 //section specific styles
+//symptoms
 .stats h4.accent, .symptoms h4.accent, .symptoms h2.accent{
     color: $orange;
+}
+//therapy
+.therapy h2.accent, .therapy h4.accent{
+    color: $blue;
 }
 
 //card specific styles
@@ -238,6 +248,7 @@ nav{
         img{width: 120%;}
         h2{color: white;}
     }
+    //symptoms
     &.inflammations-gut{
         img{
             margin-bottom: -160px;
@@ -306,37 +317,37 @@ nav{
         }
         .sleepy_head{
             @mixin rotate($deg) {transform: rotate($deg);}
-            $dimensions: 250px;
+            $dimensions: 24%;
             width: $dimensions;
-            height: $dimensions;
-            border-radius: $dimensions/2;
+            padding-top: $dimensions;
+            border-radius: $dimensions*4;
             transform-origin: center center;
             &.male_1{
                 background: center/contain no-repeat url('/assets/freisteller/sleepy_head/1.png'), 
                 rgba(255,255,255,.12);
-                left: 32px;
-                bottom: 32px;
+                left:4%;
+                bottom: 8%;
             }
             &.male_2{
                 background: center/contain no-repeat url('/assets/freisteller/sleepy_head/2.png'), 
                 rgba(255,255,255,.12);
-                left: 250px;
+                left: 32%;
                 top: 50%;
                 transform: translateY(-50%);
-                bottom: 32px;
             }
             &.male_3{
                 background: center/contain no-repeat url('/assets/freisteller/sleepy_head/1.png'), 
                 rgba(255,255,255,.12);
-                left: 500px;
-                bottom: 72px;
+                left: 56%;
+                bottom: 8%;
+                @include rotate(45deg);
 
             }
             &.female_1{
                 background: center/contain no-repeat url('/assets/freisteller/sleepy_head/3.png'), 
                 rgba(255,255,255,.12); 
-                right: 32px;
-                top: 32px;
+                right: 2%;
+                top: 4%;
             }
         }
     }
@@ -383,11 +394,66 @@ nav{
             padding-right: 50%;
         }
     }
+    &.cramps{
+        background: black;
+        &.content-bottom .container_heading{padding-right: 0;}
+        h2{color: white;}
+        .image{
+            left: auto;
+            $dimensions: 61%;
+            width: $dimensions;
+            padding-bottom: $dimensions;
+            //height: $dimensions;
+            border-radius: $dimensions;
+            &.left{
+                transform: translateX(0%) rotate(45deg);
+                left: -10%;
+                top: -16%;
+                background: center/contain no-repeat url(/assets/freisteller/cramps_1.png), rgba(255,255,255,0.08);
+            }
+            &.right{
+                transform: rotate(45deg);
+                right: -12%;
+                bottom: -12%;
+                background: center/contain no-repeat url(/assets/freisteller/cramps_2.png), $orange;
+
+            }
+        }
+    }
+    //therapy
+    &.mesalazin{
+        .container_pills{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 16px;
+            img{
+                $dimensions: 56px;
+                width:56px;
+                position: relative;
+                left:0;
+                transform: translateX(0%);
+                filter: drop-shadow(0 2px 8px rgba(0,0,0,.16));
+                &:last-child{
+                    margin-left: -16px;
+                }
+            }
+        }
+    }
+    &.biologika{
+        background: $blue;
+        h4,h3{
+            color:white;
+        }
+    }
+    &.immunsupressiva{
+        background: linear-gradient(224deg, rgba(32,14,26,1) 40%, rgba(80,66,75,1) 100%);
+        h4:nth-child(2){
+            color: white;
+        }
+    }
+
 }
-
-
-
-
 
 
 
@@ -434,6 +500,7 @@ nav{
 
     //image resizing
     .card{
+        //symptoms
         &.cases img{width: 155%;}
         &.inflammations-gut .img_container{
             width: 480px;
@@ -445,10 +512,11 @@ nav{
         }
         &.fatigue{
             h4{padding-right: 0;}
-            .sleepy_head.male_1{bottom:80px;left:24px} 
-            .sleepy_head.male_2{display: none;} 
-            .sleepy_head.male_3{display: none;} 
-            .sleepy_head.female_1{top:320px;right: -16px} 
+            .sleepy_head{
+                $dimensions: 32%;
+                width: $dimensions;
+                padding-top: $dimensions;
+            }
         }
         &.depression{
             img{
@@ -457,6 +525,17 @@ nav{
         }
         &.inflammtion_general{
             h4{padding-right: 0;}
+        }
+        &.cramps{
+            .image{
+                width: 64%;
+            }
+        }
+        //therapy
+        &.kortison{
+            img{
+                margin-bottom: -16%;
+            }
         }
     }
 

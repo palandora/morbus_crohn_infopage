@@ -64,7 +64,7 @@ h4 {
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.5625rem;
-  color: #1e1e1e;
+  color: #3a3a3a;
 }
 
 p, span {
@@ -293,6 +293,10 @@ nav .container img {
   color: #ff7a00;
 }
 
+.therapy h2.accent, .therapy h4.accent {
+  color: #0b84f4;
+}
+
 .card.cases {
   background: #373043;
 }
@@ -391,38 +395,39 @@ nav .container img {
 }
 
 .card.fatigue .sleepy_head {
-  width: 250px;
-  height: 250px;
-  border-radius: 125px;
+  width: 24%;
+  padding-top: 24%;
+  border-radius: 96%;
   -webkit-transform-origin: center center;
           transform-origin: center center;
 }
 
 .card.fatigue .sleepy_head.male_1 {
   background: center/contain no-repeat url("/assets/freisteller/sleepy_head/1.png"), rgba(255, 255, 255, 0.12);
-  left: 32px;
-  bottom: 32px;
+  left: 4%;
+  bottom: 8%;
 }
 
 .card.fatigue .sleepy_head.male_2 {
   background: center/contain no-repeat url("/assets/freisteller/sleepy_head/2.png"), rgba(255, 255, 255, 0.12);
-  left: 250px;
+  left: 32%;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  bottom: 32px;
 }
 
 .card.fatigue .sleepy_head.male_3 {
   background: center/contain no-repeat url("/assets/freisteller/sleepy_head/1.png"), rgba(255, 255, 255, 0.12);
-  left: 500px;
-  bottom: 72px;
+  left: 56%;
+  bottom: 8%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .card.fatigue .sleepy_head.female_1 {
   background: center/contain no-repeat url("/assets/freisteller/sleepy_head/3.png"), rgba(255, 255, 255, 0.12);
-  right: 32px;
-  top: 32px;
+  right: 2%;
+  top: 4%;
 }
 
 .card.malnutrition.content-bottom .container_heading {
@@ -470,6 +475,84 @@ nav .container img {
 
 .card.inflammtion_general h4 {
   padding-right: 50%;
+}
+
+.card.cramps {
+  background: black;
+}
+
+.card.cramps.content-bottom .container_heading {
+  padding-right: 0;
+}
+
+.card.cramps h2 {
+  color: white;
+}
+
+.card.cramps .image {
+  left: auto;
+  width: 61%;
+  padding-bottom: 61%;
+  border-radius: 61%;
+}
+
+.card.cramps .image.left {
+  -webkit-transform: translateX(0%) rotate(45deg);
+          transform: translateX(0%) rotate(45deg);
+  left: -10%;
+  top: -16%;
+  background: center/contain no-repeat url(/assets/freisteller/cramps_1.png), rgba(255, 255, 255, 0.08);
+}
+
+.card.cramps .image.right {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  right: -12%;
+  bottom: -12%;
+  background: center/contain no-repeat url(/assets/freisteller/cramps_2.png), #ff7a00;
+}
+
+.card.mesalazin .container_pills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 16px;
+}
+
+.card.mesalazin .container_pills img {
+  width: 56px;
+  position: relative;
+  left: 0;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  -webkit-filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.16));
+          filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.16));
+}
+
+.card.mesalazin .container_pills img:last-child {
+  margin-left: -16px;
+}
+
+.card.biologika {
+  background: #0b84f4;
+}
+
+.card.biologika h4, .card.biologika h3 {
+  color: white;
+}
+
+.card.immunsupressiva {
+  background: linear-gradient(224deg, #200e1a 40%, #50424b 100%);
+}
+
+.card.immunsupressiva h4:nth-child(2) {
+  color: white;
 }
 
 @media screen and (max-width: 880px) {
@@ -521,25 +604,21 @@ nav .container img {
   .card.fatigue h4 {
     padding-right: 0;
   }
-  .card.fatigue .sleepy_head.male_1 {
-    bottom: 80px;
-    left: 24px;
-  }
-  .card.fatigue .sleepy_head.male_2 {
-    display: none;
-  }
-  .card.fatigue .sleepy_head.male_3 {
-    display: none;
-  }
-  .card.fatigue .sleepy_head.female_1 {
-    top: 320px;
-    right: -16px;
+  .card.fatigue .sleepy_head {
+    width: 32%;
+    padding-top: 32%;
   }
   .card.depression img {
     margin-bottom: -32%;
   }
   .card.inflammtion_general h4 {
     padding-right: 0;
+  }
+  .card.cramps .image {
+    width: 64%;
+  }
+  .card.kortison img {
+    margin-bottom: -16%;
   }
 }
 
