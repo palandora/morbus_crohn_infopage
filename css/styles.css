@@ -600,6 +600,14 @@ nav .container img {
   right: -40%;
 }
 
+.card.relaxation {
+  background: linear-gradient(323deg, #8b9479 48%, #4e6375 100%);
+}
+
+.card.relaxation h4:nth-child(2) {
+  color: white;
+}
+
 .card.surgery {
   background: black;
 }
@@ -685,6 +693,45 @@ nav .container img {
   border-radius: 90px;
   bottom: 4%;
   right: 8%;
+}
+
+.card.infections {
+  background: #06131B;
+}
+
+.card.infections h4:nth-child(2) {
+  color: white;
+}
+
+.card.infections img {
+  left: auto;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+.card.infections img.main_img {
+  z-index: 2;
+  width: 90%;
+  right: -20%;
+  bottom: -20%;
+}
+
+.card.infections img.middle_img {
+  width: 80%;
+  left: -40%;
+  top: 50%;
+  opacity: .8;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.card.infections img.bg_img {
+  width: 60%;
+  right: -24%;
+  top: 20%;
+  opacity: .8;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 @media screen and (max-width: 880px) {

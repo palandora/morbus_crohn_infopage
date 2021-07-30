@@ -493,6 +493,10 @@ nav{
             }
         }
     }
+    &.relaxation{
+        background: linear-gradient(323deg, rgba(139,148,121,1) 48%, rgba(78,99,117,1) 100%);
+        h4:nth-child(2){color:white;}
+    }
     &.surgery{
         background: black;
         @include vignette(0.5,80%);
@@ -544,6 +548,34 @@ nav{
                 bottom: 4%;
                 right: 8%;
 
+            }
+        }
+    }
+    &.infections{
+        background: #06131B;
+        h4:nth-child(2){color:white;}
+        img{
+            left:auto;
+            transform: translateX(0%);
+            &.main_img{
+                z-index:2;
+                width: 90%;
+                right: -20%;
+                bottom: -20%;
+            }
+            &.middle_img{
+                width: 80%;
+                left: -40%;
+                top: 50%;
+                opacity: .8;
+                transform: translateY(-50%);
+            }
+            &.bg_img{
+                width: 60%;
+                right: -24%;
+                top: 20%;
+                opacity: .8;
+                transform: translateY(-50%);
             }
         }
     }
@@ -634,9 +666,6 @@ nav{
             }
         }
         &.immunsupressiva{
-            img.foreground_big{
-
-            }
             img.img_main{
                 width: 50%;
                 bottom: -40px;
@@ -644,16 +673,14 @@ nav{
             }
         }
         &.surgery{
-            h4{padding-right: 0;}  
+            h4{padding-right: 0;}
         }
-        
+
         //reasons
         &.genetics{
             .flare{display:none;}
         }
     }
-
-
 }
 
 
