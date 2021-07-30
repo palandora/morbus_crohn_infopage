@@ -49,6 +49,18 @@ body{
     transform: translateX(0%);
     left: auto; 
 }
+@mixin vignette($alpha,$fokus) {
+    &::after{
+        content:"";
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: center/cover no-repeat radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,$alpha) $fokus);
+    }
+}
 
 //font-styles-desktop
 h1,h2,h3{
@@ -239,6 +251,10 @@ nav{
 //therapy
 .therapy h2.accent, .therapy h4.accent{
     color: $blue;
+}
+//reasons
+.reasons h2.accent, .reasons h4.accent{
+    color: $green;
 }
 
 //card specific styles
@@ -448,8 +464,87 @@ nav{
     }
     &.immunsupressiva{
         background: linear-gradient(224deg, rgba(32,14,26,1) 40%, rgba(80,66,75,1) 100%);
-        h4:nth-child(2){
-            color: white;
+        h4:nth-child(2){color: white;}
+        @include vignette(0.5,80%);
+        img{
+            //cf
+            left:auto;
+            transform: translateX(0%);
+            &.img_main{
+                right: -4%;
+                bottom: 4%;
+                width: 280px;
+            }
+            &.img_middleground{
+                width: 24%;
+                top: 28%;
+                left: 20%;
+            }
+            &.img_foreground_big{
+                width: 450px;
+                left: -28%;
+                bottom: -24%;
+            }
+            &.img_foreground_small{
+                width: 550px;
+                top: -40%;
+                right: -40%;
+
+            }
+        }
+    }
+    &.surgery{
+        background: black;
+        @include vignette(0.5,80%);
+        h4{
+            padding-right: 50%;
+            &:nth-child(2){color:white}
+        }
+        img{
+            left: auto;
+            transform: translateX(0%);
+            &.hand_1{
+                z-index:2;
+                width: 72%;
+                left: 0;
+                top: 200px;
+            }
+            &.hand_2{
+                opacity: .88;
+                width: 88%;
+                right: -8%;
+                bottom: -240px;
+            }
+        }
+    }
+    //reasons
+    &.genetics{
+        @include vignette(0.64,88%);
+        background: center/cover no-repeat url('/assets/freisteller/genetics.png'),
+                    linear-gradient(323deg, rgba(255,77,0,1) 48%, rgba(218,39,34,1) 100%);
+        h2{color:white;}
+        .flare{
+            z-index: 3;
+            background: #fc8d71;
+            filter: blur(32px);
+            &.fl_1{
+                $dimensions:140px;
+                width: $dimensions;
+                height: $dimensions;
+                border-radius: $dimensions/2;
+                top: 16%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            &.fl_2{
+                $dimensions:180px;
+                width: $dimensions;
+                height: $dimensions;
+                border-radius: $dimensions/2;
+                bottom: 4%;
+                right: 8%;
+
+            }
         }
     }
 
@@ -531,11 +626,30 @@ nav{
                 width: 64%;
             }
         }
+
         //therapy
         &.kortison{
             img{
                 margin-bottom: -16%;
             }
+        }
+        &.immunsupressiva{
+            img.foreground_big{
+
+            }
+            img.img_main{
+                width: 50%;
+                bottom: -40px;
+
+            }
+        }
+        &.surgery{
+            h4{padding-right: 0;}  
+        }
+        
+        //reasons
+        &.genetics{
+            .flare{display:none;}
         }
     }
 
