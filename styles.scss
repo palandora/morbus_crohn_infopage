@@ -196,12 +196,12 @@ nav{
                     background: white;
                 }
                 &.back_face{
-                    background: salmon;
-                    transform: perspective(300px) rotateY(180deg);
+                    padding: 72px;
+                    background: white;
+                    transform: perspective(600px) rotateY(180deg);
                 }
             }   
         }
-        .card_new:hover{transform: perspective(600px) rotateY(180deg);}
     }
     
     .card{

@@ -229,12 +229,8 @@ nav .container img {
 }
 
 .grid .container_card .card_new .face.back_face {
-  background: salmon;
-  -webkit-transform: perspective(300px) rotateY(180deg);
-          transform: perspective(300px) rotateY(180deg);
-}
-
-.grid .container_card .card_new:hover {
+  padding: 72px;
+  background: white;
   -webkit-transform: perspective(600px) rotateY(180deg);
           transform: perspective(600px) rotateY(180deg);
 }
