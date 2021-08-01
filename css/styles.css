@@ -87,7 +87,7 @@ nav {
 
 nav .container {
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1240px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,7 +107,7 @@ nav .container img {
 
 .hero {
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1240px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -147,7 +147,7 @@ nav .container img {
 
 .teaser .container {
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1240px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -167,6 +167,7 @@ nav .container img {
 }
 
 .cards_container {
+  border: 1px solid salmon;
   background: #f8f8f8;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -181,22 +182,23 @@ nav .container img {
 }
 
 .grid {
+  width: 100%;
   padding: 64px 64px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   max-width: 1240px;
+  outline: 1px solid salmon;
   gap: 24px;
 }
 
-.grid .container_card {
+.grid .container_faces {
   height: 650px;
   position: relative;
-  outline: 1px solid sandybrown;
 }
 
-.grid .container_card .card_new {
+.grid .container_faces .faces {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -206,7 +208,18 @@ nav .container img {
   transition: all .5s ease;
 }
 
-.grid .container_card .card_new .face {
+.grid .container_faces .faces.flipY {
+  -webkit-transform: perspective(600px) rotateY(180deg);
+          transform: perspective(600px) rotateY(180deg);
+}
+
+.grid .container_faces .faces.flipX {
+  -webkit-transform: perspective(600px) rotateX(180deg);
+          transform: perspective(600px) rotateX(180deg);
+}
+
+.grid .container_faces .faces .face {
+  background: white;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -223,16 +236,87 @@ nav .container img {
           backface-visibility: hidden;
 }
 
-.grid .container_card .card_new .face.front_face {
-  padding: 48px;
-  background: white;
+.grid .container_faces .faces .face h4 {
+  z-index: 3;
+  margin-bottom: 8px;
 }
 
-.grid .container_card .card_new .face.back_face {
-  padding: 72px;
-  background: white;
+.grid .container_faces .faces .face .fab {
+  z-index: 3;
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  cursor: pointer;
+}
+
+.grid .container_faces .faces .face .fab.white {
+  background: center/contain no-repeat url("/assets/icons/fab_white.png");
+}
+
+.grid .container_faces .faces .face .fab.black {
+  background: center/contain no-repeat url("/assets/icons/fab_black.png");
+}
+
+.grid .container_faces .faces .face.front_face {
+  padding: 48px;
+}
+
+.grid .container_faces .faces .face.front_face .container_heading {
+  z-index: 3;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.grid .container_faces .faces .face.front_face .form_fg {
+  z-index: 2;
+  position: absolute;
+}
+
+.grid .container_faces .faces .face.front_face img {
+  z-index: 1;
+  position: absolute;
+}
+
+.grid .container_faces .faces .face.front_face .form_bg {
+  z-index: 0;
+  position: absolute;
+}
+
+.grid .container_faces .faces .face.front_face.content-center .container_heading {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.grid .container_faces .faces .face.front_face.content-bottom .container_heading {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 64px;
+}
+
+.grid .container_faces .faces .face.back_face {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 120px;
   -webkit-transform: perspective(600px) rotateY(180deg);
           transform: perspective(600px) rotateY(180deg);
+}
+
+.grid .container_faces .faces .face.back_face.rotateX {
+  -webkit-transform: perspective(600px) rotateX(180deg);
+          transform: perspective(600px) rotateX(180deg);
 }
 
 .grid .card {
@@ -293,16 +377,6 @@ nav .container img {
   position: absolute;
 }
 
-.grid .card img {
-  z-index: 1;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: 100%;
-  bottom: 0;
-}
-
 .grid .card .form_bg {
   z-index: 0;
   position: absolute;
@@ -334,7 +408,7 @@ nav .container img {
 footer .container {
   border-top: 1px solid #efefef;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1240px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -376,6 +450,10 @@ footer a, footer a:hover, footer a:focus, footer a:active {
   grid-column: span 2;
 }
 
+.container_faces.extended {
+  grid-column: span 2;
+}
+
 .stats h4.accent, .symptoms h4.accent, .symptoms h2.accent {
   color: #ff7a00;
 }
@@ -386,74 +464,6 @@ footer a, footer a:hover, footer a:focus, footer a:active {
 
 .reasons h2.accent, .reasons h4.accent {
   color: #12c24e;
-}
-
-.card.cases {
-  background: #373043;
-}
-
-.card.cases img {
-  width: 120%;
-}
-
-.card.cases h2 {
-  color: white;
-}
-
-.card.inflammations-gut img {
-  margin-bottom: -160px;
-  width: 500px;
-}
-
-.card.inflammations-gut .circle {
-  width: 32px;
-  height: 32px;
-  border-radius: 32px;
-  background-color: #ff7a00;
-}
-
-.card.inflammations-gut .circle .outline {
-  --scale: scale(1);
-  --dimensions: 64px;
-  width: var(--dimensions);
-  height: var(--dimensions);
-  border-radius: 40px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%) var(--scale);
-          transform: translate(-50%, -50%) var(--scale);
-  background: rgba(255, 122, 0, 0.4);
-}
-
-.card.inflammations-gut .circle.c_1 {
-  left: 34%;
-  bottom: 8%;
-}
-
-.card.inflammations-gut .circle.c_2 {
-  right: 32%;
-  bottom: 28%;
-}
-
-.card.inflammations-gut .circle.c_3 {
-  left: 40%;
-  bottom: 32%;
-}
-
-.card.inflammations-gut .backdrop {
-  width: 600px;
-  height: 600px;
-  border-radius: 300px;
-  left: 50%;
-  bottom: -240px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  background-color: #edeae6;
-}
-
-.card.diarrhea {
-  background: sandybrown;
 }
 
 .card.fatigue {
@@ -805,6 +815,90 @@ footer a, footer a:hover, footer a:focus, footer a:active {
           transform: translateY(-50%);
 }
 
+.diarrhea .front_face img.tp_1 {
+  right: -80px;
+  width: 500px;
+  bottom: 16px;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: rotate(8deg);
+          transform: rotate(8deg);
+}
+
+.diarrhea .front_face img.tp_2 {
+  width: 400px;
+  left: -120px;
+  bottom: 80px;
+}
+
+.inflammations-gut .front_face img {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: -160px;
+  width: 500px;
+}
+
+.inflammations-gut .front_face .circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  background-color: #ff7a00;
+}
+
+.inflammations-gut .front_face .circle .outline {
+  --scale: scale(1);
+  --dimensions: 64px;
+  width: var(--dimensions);
+  height: var(--dimensions);
+  border-radius: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) var(--scale);
+          transform: translate(-50%, -50%) var(--scale);
+  background: rgba(255, 122, 0, 0.4);
+}
+
+.inflammations-gut .front_face .circle.c_1 {
+  left: 34%;
+  bottom: 8%;
+}
+
+.inflammations-gut .front_face .circle.c_2 {
+  right: 32%;
+  bottom: 28%;
+}
+
+.inflammations-gut .front_face .circle.c_3 {
+  left: 40%;
+  bottom: 32%;
+}
+
+.inflammations-gut .front_face .backdrop {
+  width: 600px;
+  height: 600px;
+  border-radius: 300px;
+  left: 50%;
+  bottom: -240px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #edeae6;
+}
+
+.cases #front_face {
+  background: #373043;
+  color: white;
+}
+
+.cases #front_face img {
+  width: 120%;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
 @media screen and (max-width: 880px) {
   h1 {
     font-size: 4rem;
@@ -846,10 +940,6 @@ footer a, footer a:hover, footer a:focus, footer a:active {
   .card.inflammations-gut .img_container {
     width: 480px;
     margin-bottom: -44px;
-  }
-  .card.diarrhea img.tp_1 {
-    width: 500px;
-    bottom: -40px;
   }
   .card.fatigue h4 {
     padding-right: 0;
