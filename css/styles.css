@@ -167,7 +167,6 @@ nav .container img {
 }
 
 .cards_container {
-  border: 1px solid salmon;
   background: #f8f8f8;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -189,7 +188,6 @@ nav .container img {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   max-width: 1240px;
-  outline: 1px solid salmon;
   gap: 24px;
 }
 
@@ -466,355 +464,6 @@ footer a, footer a:hover, footer a:focus, footer a:active {
   color: #12c24e;
 }
 
-.card.fatigue {
-  background-color: black;
-}
-
-.card.fatigue h4 {
-  color: #707070;
-  padding-right: 50%;
-}
-
-.card.fatigue h4.accent {
-  color: #ff7a00;
-}
-
-.card.fatigue .sleepy_head {
-  width: 24%;
-  padding-top: 24%;
-  border-radius: 96%;
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-}
-
-.card.fatigue .sleepy_head.male_1 {
-  background: center/contain no-repeat url("/assets/freisteller/sleepy_head/1.png"), rgba(255, 255, 255, 0.12);
-  left: 4%;
-  bottom: 8%;
-}
-
-.card.fatigue .sleepy_head.male_2 {
-  background: center/contain no-repeat url("/assets/freisteller/sleepy_head/2.png"), rgba(255, 255, 255, 0.12);
-  left: 32%;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.card.fatigue .sleepy_head.male_3 {
-  background: center/contain no-repeat url("/assets/freisteller/sleepy_head/1.png"), rgba(255, 255, 255, 0.12);
-  left: 56%;
-  bottom: 8%;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.card.fatigue .sleepy_head.female_1 {
-  background: center/contain no-repeat url("/assets/freisteller/sleepy_head/3.png"), rgba(255, 255, 255, 0.12);
-  right: 2%;
-  top: 4%;
-}
-
-.card.malnutrition.content-bottom .container_heading {
-  padding-right: 0;
-}
-
-.card.malnutrition .pg_indicator {
-  position: relative;
-  margin-top: 32px;
-  height: 16px;
-  border-radius: 8px;
-  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #ff7a00), to(#3ee204));
-  background: linear-gradient(90deg, #ff7a00 50%, #3ee204 100%);
-}
-
-.card.malnutrition .pg_indicator .knob {
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  background: #ff7a00;
-  -webkit-box-shadow: 0px 0px 0px 8px #fff;
-          box-shadow: 0px 0px 0px 8px #fff;
-  position: absolute;
-  left: 48px;
-}
-
-.card.inflammtion_general {
-  background: center/cover no-repeat url("/assets/freisteller/inflamation_skin_only.png"), white;
-}
-
-.card.inflammtion_general::after {
-  content: "";
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  position: absolute;
-  background: center/cover no-repeat url("/assets/freisteller/inflamation_only.png");
-  opacity: .8;
-}
-
-.card.inflammtion_general h4 {
-  padding-right: 50%;
-}
-
-.card.cramps {
-  background: black;
-}
-
-.card.cramps.content-bottom .container_heading {
-  padding-right: 0;
-}
-
-.card.cramps h2 {
-  color: white;
-}
-
-.card.cramps .image {
-  left: auto;
-  width: 61%;
-  padding-bottom: 61%;
-  border-radius: 61%;
-}
-
-.card.cramps .image.left {
-  -webkit-transform: translateX(0%) rotate(45deg);
-          transform: translateX(0%) rotate(45deg);
-  left: -10%;
-  top: -16%;
-  background: center/contain no-repeat url(/assets/freisteller/cramps_1.png), rgba(255, 255, 255, 0.08);
-}
-
-.card.cramps .image.right {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  right: -12%;
-  bottom: -12%;
-  background: center/contain no-repeat url(/assets/freisteller/cramps_2.png), #ff7a00;
-}
-
-.card.mesalazin .container_pills {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 16px;
-}
-
-.card.mesalazin .container_pills img {
-  width: 56px;
-  position: relative;
-  left: 0;
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
-  -webkit-filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.16));
-          filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.16));
-}
-
-.card.mesalazin .container_pills img:last-child {
-  margin-left: -16px;
-}
-
-.card.biologika {
-  background: #0b84f4;
-}
-
-.card.biologika h4, .card.biologika h3 {
-  color: white;
-}
-
-.card.immunsupressiva {
-  background: linear-gradient(224deg, #200e1a 40%, #50424b 100%);
-}
-
-.card.immunsupressiva h4:nth-child(2) {
-  color: white;
-}
-
-.card.immunsupressiva::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: center/cover no-repeat radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 80%);
-}
-
-.card.immunsupressiva img {
-  left: auto;
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
-}
-
-.card.immunsupressiva img.img_main {
-  right: -4%;
-  bottom: 4%;
-  width: 280px;
-}
-
-.card.immunsupressiva img.img_middleground {
-  width: 24%;
-  top: 28%;
-  left: 20%;
-}
-
-.card.immunsupressiva img.img_foreground_big {
-  width: 450px;
-  left: -28%;
-  bottom: -24%;
-}
-
-.card.immunsupressiva img.img_foreground_small {
-  width: 550px;
-  top: -40%;
-  right: -40%;
-}
-
-.card.relaxation {
-  background: center/cover no-repeat url("/assets/freisteller/relaxation.png"), linear-gradient(323deg, #8b9479 48%, #4e6375 100%);
-}
-
-.card.relaxation h4:nth-child(2) {
-  color: white;
-}
-
-.card.surgery {
-  background: black;
-}
-
-.card.surgery::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: center/cover no-repeat radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 80%);
-}
-
-.card.surgery h4 {
-  padding-right: 50%;
-}
-
-.card.surgery h4:nth-child(2) {
-  color: white;
-}
-
-.card.surgery img {
-  left: auto;
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
-}
-
-.card.surgery img.hand_1 {
-  z-index: 2;
-  width: 72%;
-  left: 0;
-  top: 200px;
-}
-
-.card.surgery img.hand_2 {
-  opacity: .88;
-  width: 88%;
-  right: -8%;
-  bottom: -240px;
-}
-
-.card.genetics {
-  background: center/cover no-repeat url("/assets/freisteller/genetics.png"), linear-gradient(323deg, #ff4d00 48%, #da2722 100%);
-}
-
-.card.genetics::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: center/cover no-repeat radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.64) 88%);
-}
-
-.card.genetics h2 {
-  color: white;
-}
-
-.card.genetics .flare {
-  z-index: 3;
-  background: #fc8d71;
-  -webkit-filter: blur(32px);
-          filter: blur(32px);
-}
-
-.card.genetics .flare.fl_1 {
-  width: 140px;
-  height: 140px;
-  border-radius: 70px;
-  top: 16%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.card.genetics .flare.fl_2 {
-  width: 180px;
-  height: 180px;
-  border-radius: 90px;
-  bottom: 4%;
-  right: 8%;
-}
-
-.card.infections {
-  background: #06131B;
-}
-
-.card.infections h4:nth-child(2) {
-  color: white;
-}
-
-.card.infections img {
-  left: auto;
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
-}
-
-.card.infections img.main_img {
-  z-index: 2;
-  width: 90%;
-  right: -20%;
-  bottom: -20%;
-}
-
-.card.infections img.middle_img {
-  width: 80%;
-  left: -40%;
-  top: 50%;
-  opacity: .8;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.card.infections img.bg_img {
-  width: 60%;
-  right: -24%;
-  top: 20%;
-  opacity: .8;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
 .diarrhea .front_face img.tp_1 {
   right: -80px;
   width: 500px;
@@ -897,6 +546,362 @@ footer a, footer a:hover, footer a:focus, footer a:active {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+.fatigue #front_face {
+  background-color: black;
+}
+
+.fatigue #front_face h4 {
+  color: #707070;
+  padding-right: 50%;
+}
+
+.fatigue #front_face h4.accent {
+  color: #ff7a00;
+}
+
+.fatigue #front_face .sleepy_head {
+  width: 24%;
+  padding-top: 24%;
+  border-radius: 96%;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fatigue #front_face .sleepy_head.male_1 {
+  background: center/contain no-repeat url("/assets/freisteller/sleepy_head/1.png"), rgba(255, 255, 255, 0.12);
+  left: 4%;
+  bottom: 8%;
+}
+
+.fatigue #front_face .sleepy_head.male_2 {
+  background: center/contain no-repeat url("/assets/freisteller/sleepy_head/2.png"), rgba(255, 255, 255, 0.12);
+  left: 32%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.fatigue #front_face .sleepy_head.male_3 {
+  background: center/contain no-repeat url("/assets/freisteller/sleepy_head/1.png"), rgba(255, 255, 255, 0.12);
+  left: 56%;
+  bottom: 8%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.fatigue #front_face .sleepy_head.female_1 {
+  background: center/contain no-repeat url("/assets/freisteller/sleepy_head/3.png"), rgba(255, 255, 255, 0.12);
+  right: 2%;
+  top: 4%;
+}
+
+.malnutrition #front_face.content-bottom .container_heading {
+  padding-right: 0;
+}
+
+.malnutrition #front_face .pg_indicator {
+  position: relative;
+  margin-top: 32px;
+  height: 16px;
+  border-radius: 8px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #ff7a00), to(#3ee204));
+  background: linear-gradient(90deg, #ff7a00 50%, #3ee204 100%);
+}
+
+.malnutrition #front_face .pg_indicator .knob {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background: #ff7a00;
+  -webkit-box-shadow: 0px 0px 0px 8px #fff;
+          box-shadow: 0px 0px 0px 8px #fff;
+  position: absolute;
+  left: 48px;
+}
+
+.depression #front_face img {
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+  bottom: 0;
+}
+
+.inflammtion_general #front_face {
+  background: center/cover no-repeat url("/assets/freisteller/inflamation_skin_only.png"), white;
+}
+
+.inflammtion_general #front_face::after {
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  position: absolute;
+  background: center/cover no-repeat url("/assets/freisteller/inflamation_only.png");
+  opacity: .8;
+}
+
+.inflammtion_general #front_face h4 {
+  padding-right: 50%;
+}
+
+.cramps #front_face {
+  background: black;
+}
+
+.cramps #front_face.content-bottom .container_heading {
+  padding-right: 0;
+}
+
+.cramps #front_face h2 {
+  color: white;
+}
+
+.cramps #front_face .image {
+  width: 61%;
+  padding-bottom: 61%;
+  border-radius: 61%;
+}
+
+.cramps #front_face .image.left {
+  -webkit-transform: translateX(0%) rotate(45deg);
+          transform: translateX(0%) rotate(45deg);
+  left: -10%;
+  top: -16%;
+  background: center/contain no-repeat url(/assets/freisteller/cramps_1.png), rgba(255, 255, 255, 0.08);
+}
+
+.cramps #front_face .image.right {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  right: -12%;
+  bottom: -12%;
+  background: center/contain no-repeat url(/assets/freisteller/cramps_2.png), #ff7a00;
+}
+
+.kortison #front_face img {
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+  bottom: 0;
+}
+
+.mesalazin #front_face .container_pills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 16px;
+}
+
+.mesalazin #front_face .container_pills img {
+  width: 56px;
+  position: relative;
+  left: 0;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  -webkit-filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.16));
+          filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.16));
+}
+
+.mesalazin #front_face .container_pills img:last-child {
+  margin-left: -16px;
+}
+
+.biologika #front_face {
+  background: #0b84f4;
+}
+
+.biologika #front_face h4, .biologika #front_face h3 {
+  color: white;
+}
+
+.immunsupressiva #front_face {
+  background: linear-gradient(224deg, #200e1a 40%, #50424b 100%);
+}
+
+.immunsupressiva #front_face h4:nth-child(2) {
+  color: white;
+}
+
+.immunsupressiva #front_face::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: center/cover no-repeat radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 80%);
+}
+
+.immunsupressiva #front_face img.img_main {
+  right: -4%;
+  bottom: 4%;
+  width: 280px;
+}
+
+.immunsupressiva #front_face img.img_middleground {
+  width: 24%;
+  top: 28%;
+  left: 20%;
+}
+
+.immunsupressiva #front_face img.img_foreground_big {
+  width: 450px;
+  left: -28%;
+  bottom: -24%;
+}
+
+.immunsupressiva #front_face img.img_foreground_small {
+  width: 550px;
+  top: -40%;
+  right: -40%;
+}
+
+.relaxation #front_face {
+  background: center/cover no-repeat url("/assets/freisteller/relaxation.png"), linear-gradient(323deg, #8b9479 48%, #4e6375 100%);
+}
+
+.relaxation #front_face h4:nth-child(2) {
+  color: white;
+}
+
+.surgery #front_face {
+  background: black;
+}
+
+.surgery #front_face::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: center/cover no-repeat radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 80%);
+}
+
+.surgery #front_face h4 {
+  padding-right: 50%;
+}
+
+.surgery #front_face h4:nth-child(2) {
+  color: white;
+}
+
+.surgery #front_face img.hand_1 {
+  z-index: 2;
+  width: 72%;
+  left: 0;
+  top: 200px;
+}
+
+.surgery #front_face img.hand_2 {
+  opacity: .88;
+  width: 88%;
+  right: -8%;
+  bottom: -240px;
+}
+
+.genetics #front_face {
+  background: center/cover no-repeat url("/assets/freisteller/genetics.png"), linear-gradient(323deg, #ff4d00 48%, #da2722 100%);
+}
+
+.genetics #front_face::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: center/cover no-repeat radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.64) 88%);
+}
+
+.genetics #front_face h2 {
+  color: white;
+}
+
+.genetics #front_face .flare {
+  z-index: 3;
+  background: #fc8d71;
+  -webkit-filter: blur(32px);
+          filter: blur(32px);
+}
+
+.genetics #front_face .flare.fl_1 {
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+  top: 16%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.genetics #front_face .flare.fl_2 {
+  width: 180px;
+  height: 180px;
+  border-radius: 90px;
+  bottom: 4%;
+  right: 8%;
+}
+
+.infections #front_face {
+  background: #06131B;
+}
+
+.infections #front_face h4:nth-child(2) {
+  color: white;
+}
+
+.infections #front_face img {
+  left: auto;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+.infections #front_face img.main_img {
+  z-index: 2;
+  width: 90%;
+  right: -20%;
+  bottom: -20%;
+}
+
+.infections #front_face img.middle_img {
+  width: 80%;
+  left: -40%;
+  top: 50%;
+  opacity: .8;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.infections #front_face img.bg_img {
+  width: 60%;
+  right: -24%;
+  top: 20%;
+  opacity: .8;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 @media screen and (max-width: 880px) {
