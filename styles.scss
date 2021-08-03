@@ -192,6 +192,9 @@ nav{
     .container_faces{
         height: 650px;
         position: relative;
+        top: 200px;
+        opacity: 0;
+        transition: all 1.2s ease-in;
         .faces{
             position: absolute;
             width: 100%;

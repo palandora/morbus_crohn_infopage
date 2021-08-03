@@ -8,8 +8,6 @@ function setOverlay(show,htmlEl){
     }
 }
 
-
-
 function flipCard(){
     document.addEventListener('click', e =>{
         const currentElement = e.target
@@ -22,12 +20,11 @@ function flipCard(){
             const container = faces.parentNode
 
             if(container.classList.contains('extended')){
-                console.log("...")
                 if(classListFaces.contains('flipX')){
                     frontFace.style.display = "block"
                     classListFaces.remove('flipX')
                     setOverlay(false, faces)
-                }else{
+                }else{ 
                     setTimeout(()=>{frontFace.style.display = "none"}, 500) 
                     classListFaces.add('flipX')
                     setOverlay(true, faces)
@@ -45,7 +42,36 @@ function flipCard(){
     })
 }
 
+function fadeInCards(){
+    const cards = document.querySelectorAll('.container_faces')
+    const options = {
+        root: null,
+        threshold: 0,
+        rootMargin: "0px 0px 180px 0px"
+    };
+    const observer = new IntersectionObserver((entries,observer)=>{
+        entries.forEach(entry => {
+            if(!entry.isIntersecting){
+                return
+            }
+            entry.target.style.top =  "0px"
+            entry.target.style.opacity =  "1"
+            //after faded in card -> start animation within card
+                //add class active to card? --> !!needs to be the same for every class!!  
+                    // all value set to dest val as soon as class is added 
+            observer.unobserve(entry.target)
+        })
+    },options)
+
+    cards.forEach(card=>{
+        observer.observe(card)
+        
+    })
+
+}
 
 document.addEventListener('DOMContentLoaded', ()=>{
     flipCard()
+    fadeInCards()
 })
+

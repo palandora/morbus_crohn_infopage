@@ -223,6 +223,10 @@ nav .container img {
 .grid .container_faces {
   height: 650px;
   position: relative;
+  top: 200px;
+  opacity: 0;
+  -webkit-transition: all 1.2s ease-in;
+  transition: all 1.2s ease-in;
 }
 
 .grid .container_faces .faces {
