@@ -1,20 +1,34 @@
 
 function flipCard(){
-    //get all cards
-    const cards = document.querySelectorAll('.container_faces')
+    document.addEventListener('click', e =>{
+        const currentElement = e.target
+        if(!currentElement.matches('.fab')){
+            return
+        }else{
+            const faces = currentElement.parentNode.parentNode
+            const frontFace = faces.querySelector('.front_face')
+            const classListFaces = faces.classList
+            const container = faces.parentNode
 
-    cards.forEach(card =>{
-        card.addEventListener('click',()=>{
-            const innerCard = card.childNodes[1]
-            const classes = innerCard.classList
-            if(card.classList.contains('extended')){
-                classes.contains('flipX') ? classes.remove('flipX') : classes.add('flipX')
+            if(container.classList.contains('extended')){
+                console.log("...")
+                if(classListFaces.contains('flipX')){
+                    frontFace.style.display = "block"
+                    classListFaces.remove('flipX')
+                }else{
+                    setTimeout(()=>{frontFace.style.display = "none"}, 500) 
+                    classListFaces.add('flipX')
+                }
             }else{
-                classes.contains('flipY') ? classes.remove('flipY') : classes.add('flipY')
+                classListFaces.contains('flipY') ? classListFaces.remove('flipY') : classListFaces.add('flipY')
             }
-        })
+
+        }
+        
     })
 }
 
 
-flipCard()
+document.addEventListener('DOMContentLoaded', ()=>{
+    flipCard()
+})
