@@ -38,6 +38,35 @@ body {
   font-weight: 400;
 }
 
+body.hide::before {
+  display: block;
+  content: "";
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  -webkit-animation: .5s ease-in fadeInOverlay forwards;
+          animation: .5s ease-in fadeInOverlay forwards;
+}
+
+@-webkit-keyframes fadeInOverlay {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes fadeInOverlay {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
 h1, h2, h3 {
   word-wrap: break-word;
 }
