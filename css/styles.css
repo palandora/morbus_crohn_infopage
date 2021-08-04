@@ -225,8 +225,8 @@ nav .container img {
   position: relative;
   top: 200px;
   opacity: 0;
-  -webkit-transition: all 1.2s ease-in;
-  transition: all 1.2s ease-in;
+  -webkit-transition: all 1.2s ease-out;
+  transition: all 1.2s ease-out;
 }
 
 .grid .container_faces .faces {
@@ -499,7 +499,7 @@ footer a, footer a:hover, footer a:focus, footer a:active {
 
 .diarrhea .front_face img.tp_1 {
   right: -80px;
-  width: 500px;
+  width: 96%;
   bottom: 16px;
   -webkit-transform-origin: center center;
           transform-origin: center center;
@@ -937,6 +937,11 @@ footer a, footer a:hover, footer a:focus, footer a:active {
           transform: translateY(-50%);
 }
 
+.diarrhea.container_faces, .depression.container_faces, .mesalazin.container_faces, .immunsupressiva.container_faces, .smoking.container_faces {
+  -webkit-transition: all 1.4s ease-out;
+  transition: all 1.4s ease-out;
+}
+
 @media screen and (max-width: 880px) {
   h1 {
     font-size: 4rem;
@@ -961,51 +966,51 @@ footer a, footer a:hover, footer a:focus, footer a:active {
   .grid {
     padding: 40px;
   }
-  .grid .card {
+  .grid .container_faces {
     height: 550px;
     grid-column: span 2;
   }
-  .grid .card .fab {
+  .grid .container_faces .fab {
     width: 56px;
   }
   .grid .section_desc {
     padding: 0 48px;
     margin-bottom: 56px;
   }
-  .card.cases img {
-    width: 155%;
+  .container_faces.cases #front_face img {
+    width: 160%;
   }
-  .card.inflammations-gut .img_container {
-    width: 480px;
-    margin-bottom: -44px;
+  .container_faces.diarrhea #front_face img.tp_1 {
+    right: -160px;
+    top: 20px;
   }
-  .card.fatigue h4 {
+  .container_faces.fatigue h4 {
     padding-right: 0;
   }
-  .card.fatigue .sleepy_head {
+  .container_faces.fatigue .sleepy_head {
     width: 32%;
     padding-top: 32%;
   }
-  .card.depression img {
+  .container_faces.depression img {
     margin-bottom: -32%;
   }
-  .card.inflammtion_general h4 {
+  .container_faces.inflammtion_general h4 {
     padding-right: 0;
   }
-  .card.cramps .image {
+  .container_faces.cramps .image {
     width: 64%;
   }
-  .card.kortison img {
+  .container_faces.kortison img {
     margin-bottom: -16%;
   }
-  .card.immunsupressiva img.img_main {
+  .container_faces.immunsupressiva img.img_main {
     width: 50%;
     bottom: -40px;
   }
-  .card.surgery h4 {
+  .container_faces.surgery h4 {
     padding-right: 0;
   }
-  .card.genetics .flare {
+  .container_faces.genetics .flare {
     display: none;
   }
 }

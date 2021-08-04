@@ -194,7 +194,7 @@ nav{
         position: relative;
         top: 200px;
         opacity: 0;
-        transition: all 1.2s ease-in;
+        transition: all 1.2s ease-out;
         .faces{
             position: absolute;
             width: 100%;
@@ -395,18 +395,20 @@ footer{
 
 
 //card specific styles new
-.diarrhea .front_face{
-    img.tp_1{
-        right:-80px;
-        width: 500px;
-        bottom: 16px;
-        transform-origin: center center;
-        transform: rotate(8deg);
-    }
-    img.tp_2{
-        width: 400px;
-        left:-120px;
-        bottom: 80px;
+.diarrhea{
+    .front_face{
+        img.tp_1{
+            right:-80px;
+            width: 96%;
+            bottom: 16px;
+            transform-origin: center center;
+            transform: rotate(8deg);
+        }
+        img.tp_2{
+            width: 400px;
+            left:-120px;
+            bottom: 80px;
+        }
     }
 }
 .inflammations-gut .front_face{
@@ -530,7 +532,8 @@ footer{
         }
         }
 }
-.depression #front_face{
+.depression{
+    #front_face{
     img{
         z-index: 1;
         position: absolute;
@@ -538,8 +541,8 @@ footer{
         transform: translateX(-50%);
         width: 100%;
         bottom: 0;
+        }
     }
-
 }
 .inflammtion_general #front_face{
     background: center/cover no-repeat url('/assets/freisteller/inflamation_skin_only.png'), white ;
@@ -592,25 +595,26 @@ footer{
         bottom: 0;
     }
 }
-.mesalazin #front_face{
-    .container_pills{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 16px;
-        img{
-            $dimensions: 56px;
-            width:56px;
-            position: relative;
-            left:0;
-            transform: translateX(0%);
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,.16));
-            &:last-child{
-                margin-left: -16px;
+.mesalazin{ 
+    #front_face{
+        .container_pills{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 16px;
+            img{
+                $dimensions: 56px;
+                width:56px;
+                position: relative;
+                left:0;
+                transform: translateX(0%);
+                filter: drop-shadow(0 2px 8px rgba(0,0,0,.16));
+                &:last-child{
+                    margin-left: -16px;
+                }
             }
         }
     }
-
 }
 .biologika #front_face{
     background: $blue;
@@ -732,6 +736,13 @@ footer{
     }
 }
 
+// card specific animations
+.diarrhea,.depression,.mesalazin,.immunsupressiva,.smoking{
+    &.container_faces{
+        transition: all 1.4s ease-out;
+    }
+}
+
 
 
 // .inflammations-gut .faces{
@@ -772,7 +783,7 @@ footer{
     }
     .grid{
         padding:40px;
-        .card{
+        .container_faces{
             height: 550px;
             grid-column: span 2;
             .fab{width: 56px;}
@@ -784,17 +795,13 @@ footer{
     }
 
     //image resizing
-    .card{
+    .container_faces{
         //symptoms
-        &.cases img{width: 155%;}
-        &.inflammations-gut .img_container{
-            width: 480px;
-            margin-bottom: -44px;
+        &.cases #front_face img{width: 160%;}
+        &.diarrhea #front_face img.tp_1{
+            right: -160px;
+            top: 20px;
         }
-        // &.diarrhea img.tp_1{
-        //     width: 500px;
-        //     bottom: -40px;
-        // }
         &.fatigue{
             h4{padding-right: 0;}
             .sleepy_head{

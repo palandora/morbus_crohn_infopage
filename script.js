@@ -47,7 +47,7 @@ function fadeInCards(){
     const options = {
         root: null,
         threshold: 0,
-        rootMargin: "0px 0px 180px 0px"
+        rootMargin: "0px 0px 280px 0px"
     };
     const observer = new IntersectionObserver((entries,observer)=>{
         entries.forEach(entry => {
