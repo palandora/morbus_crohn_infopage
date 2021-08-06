@@ -54,11 +54,13 @@ function fadeInCards(){
             if(!entry.isIntersecting){
                 return
             }
+            //fade in cards
             entry.target.style.top =  "0px"
             entry.target.style.opacity =  "1"
-            //after faded in card -> start animation within card
-                //add class active to card? --> !!needs to be the same for every class!!  
-                    // all value set to dest val as soon as class is added 
+            //card animations
+            entry.target.querySelector('.front_face').classList.add('animate')
+            // console.log(entry.target.querySelector('.front_face'))
+
             observer.unobserve(entry.target)
         })
     },options)

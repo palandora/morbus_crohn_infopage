@@ -275,64 +275,7 @@ nav{
             }   
         }
     }
-    .card{
-        overflow: hidden;
-        position: relative;
-        padding: 48px;
-        border-radius: 34px;
-        background: white;
-        display: flex;
-        flex-direction: column;
-        height: 650px;
-        h4{
-            z-index:3;
-            margin-bottom: 8px;
-        }
-        .fab{
-            z-index: 3;
-            width: 64px;
-            height: 64px;
-            position: absolute;
-            right:40px;
-            bottom: 40px;
-            cursor: pointer;
-            &.white{
-                background: center/contain no-repeat url('/assets/icons/fab_white.png');
-            }
-            &.black{
-                background: center/contain no-repeat url('/assets/icons/fab_black.png') ;
-            }
-        }
-        .container_heading{
-            z-index:3;
-            flex-grow:1;
-            display: flex;
-            flex-direction: column;
-        }
-        .form_fg{
-            z-index: 2;
-            position: absolute;
-        }
-        // img{
-        //     z-index: 1;
-        //     position: absolute;
-        //     left:50%;
-        //     transform: translateX(-50%);
-        //     width: 100%;
-        //     bottom: 0;
-        // }
-        .form_bg{
-            z-index: 0;
-            position: absolute;
-        }
-        &.content-center .container_heading{
-            justify-content: center;
-        }
-        &.content-bottom .container_heading{
-            justify-content: flex-end;
-            padding-right: 64px;
-        }
-    }
+
     .section_desc{
         padding: 0 140px 0 48px;
         margin-bottom: 103px;
@@ -418,28 +361,71 @@ footer{
         bottom: -160px;
         width: 500px;
     }
-    .circle{
-        $dimensions: 32px;
-        width: $dimensions; 
-        height: $dimensions;
-        border-radius: $dimensions;
-        background-color: $orange;
-        .outline{
-            --scale: scale(1);
-            --dimensions: 64px;
-            width: var(--dimensions);
-            height: var(--dimensions);
-            border-radius: 40px;
+
+    .circle_container{
+        --dimensions: 40px;
+        width: var(--dimensions);
+        height: var(--dimensions);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .circle{
             position: absolute;
-            left: 50%;
-            top: 50%; 
-            transform: translate(-50%,-50%) var(--scale);
-            background: rgba(255, 122, 0,.4);
+            transform-origin: center center;
+            background-color: $orange;
+            width: inherit;
+            height: inherit;
+            transform: scale(0);
+            border-radius: 50%;
+            .outline{
+                --scale: scale(1);
+                --dimensions: 64px;
+                width: var(--dimensions);
+                height: var(--dimensions);
+                border-radius: 40px;
+                position: absolute;
+                left: 50%;
+                top: 50%; 
+                transform: translate(-50%,-50%) var(--scale);
+                background: rgba(255, 122, 0,.4);
+            }
         }
-        &.c_1{left: 34%; bottom: 8%;}
-        &.c_2{right: 32%; bottom: 28%}
-        &.c_3{left: 40%; bottom: 32%}
+        &.c_1{
+            left: 34%; 
+            bottom: 8%;
+        }
+        &.c_2{
+            right: 32%; 
+            bottom: 28%;
+        }
+        &.c_3{
+            left: 40%; 
+            bottom: 32%;
+        }
     }
+    &.animate .circle_container{
+        &.c_1{
+            .circle{
+                animation: 2s ease-out scaling forwards;
+            }
+        }
+        &.c_2{
+            .circle{
+                animation: 2s ease-out 1s scaling forwards;
+            }
+        }
+        &.c_3{
+            .circle{
+                animation: 2s ease-out 1.5s scaling forwards;
+            }
+        }
+        @keyframes scaling {
+            from { transform:scale(0); } 
+            to { transform:scale(1); }  
+        }
+        
+    }
+
     .backdrop{
         $dimensions: 600px;
         width: $dimensions;
@@ -456,13 +442,19 @@ footer{
     color: white;
     img{
         width: 120%;
-        bottom: 0;
+        bottom: -120px;
         left: 50%;
         transform: translateX(-50%);
+        transition: bottom 2s ease-out;
+    }
+    &.animate{
+        img{bottom: 0;}
+
     }
 }
 
 .fatigue #front_face{
+    @mixin rotate($deg) {transform: rotate($deg);}
     background-color: black;
     h4{
         color: $grey;
@@ -472,12 +464,16 @@ footer{
         }
     }
     .sleepy_head{
-        @mixin rotate($deg) {transform: rotate($deg);}
         $dimensions: 24%;
         width: $dimensions;
         padding-top: $dimensions;
         border-radius: $dimensions*4;
         transform-origin: center center;
+        transition: left ease-out 6s, 
+                    top ease-out 6s, 
+                    right ease-out 6s, 
+                    bottom ease-out 6s,
+                    transform ease-out 6s;
         &.male_1{
             background: center/contain no-repeat url('/assets/freisteller/sleepy_head/1.png'), 
             rgba(255,255,255,.12);
@@ -506,6 +502,31 @@ footer{
             top: 4%;
         }
     }
+    &.animate{
+        .sleepy_head{
+            &.male_1{
+                bottom: -4%;
+                left:-4%;
+                @include rotate(45deg);
+            }
+            &.male_2{
+                left: 40%;
+                //@include rotate(16deg);
+            }
+            &.male_3{
+                left: 48%;
+                bottom: 4%;
+                @include rotate(-80deg);
+            }
+            &.female_1{
+                right: 8%;
+                top: 16%;
+                @include rotate(12deg);
+            }
+
+        }
+
+    }
 }
 .malnutrition #front_face{
     //cf
@@ -525,22 +546,34 @@ footer{
             width: $dimensions;
             height: $dimensions;
             border-radius: $dimensions/2;
-            background: rgba(255,122,0,1);
+            background: rgba(62,226,4,1) 100%;
             box-shadow: 0px 0px 0px 8px #fff;
             position:absolute;
-            left: 48px; 
+            left: 100%; 
+            transition: left 5s ease-out, background 2.5s ease-out;
         }
+    }
+    &.animate{
+        .pg_indicator .knob{
+            left: 12%;
+            background: rgba(255,122,0,1) 50%;
         }
+
+    }
 }
-.depression{
-    #front_face{
-    img{
-        z-index: 1;
-        position: absolute;
-        left:50%;
-        transform: translateX(-50%);
-        width: 100%;
-        bottom: 0;
+.depression #front_face{
+        img{
+            z-index: 1;
+            position: absolute;
+            left:50%;
+            transform: translateX(-50%);
+            width: 100%;
+            bottom: -200px;
+            transition: bottom 3s ease-out;
+        }
+    &.animate{
+        img{
+            bottom: 0;
         }
     }
 }
@@ -557,9 +590,17 @@ footer{
         position: absolute;
         background: center/cover no-repeat url('/assets/freisteller/inflamation_only.png');
         opacity: .8;
+        transition: transform 4s ease-out;
     }
     h4{
         padding-right: 50%;
+    }
+    &.animate{
+        &::after{
+            transform: scale(1.06);
+
+        }
+
     }
 }
 .cramps #front_face{
@@ -571,18 +612,36 @@ footer{
         width: $dimensions;
         padding-bottom: $dimensions;
         border-radius: $dimensions;
+        transition: left 3s ease-out, 
+                    right 3s ease-out,
+                    top 3s ease-out, 
+                    bottom 3s ease-out,
+                    transform 3s ease-out;
         &.left{
-            transform: translateX(0%) rotate(45deg);
-            left: -10%;
-            top: -16%;
+            transform: rotate(40deg);
+            left: -16%;
+            top: -24%;
             background: center/contain no-repeat url(/assets/freisteller/cramps_1.png), rgba(255,255,255,0.08);
         }
         &.right{
-            transform: rotate(45deg);
-            right: -12%;
-            bottom: -12%;
+            transform: rotate(40deg);
+            right: -24%;
+            bottom: -24%;
             background: center/contain no-repeat url(/assets/freisteller/cramps_2.png), $orange;
         }
+    }
+    &.animate{
+        .left{
+            transform: rotate(45deg);
+            left: -10%;
+            top: -16%;
+        }
+        .right{
+            transform: rotate(45deg);
+            right: -12%;
+            bottom: -12%; 
+        }
+        
     }
 }
 .kortison #front_face{
@@ -592,7 +651,12 @@ footer{
         left:50%;
         transform: translateX(-50%);
         width: 100%;
-        bottom: 0;
+        bottom: -120px;
+        transition: bottom 2s ease-out;
+    }
+    &.animate{
+        img{bottom: 0;}
+
     }
 }
 .mesalazin{ 
@@ -606,8 +670,6 @@ footer{
                 $dimensions: 56px;
                 width:56px;
                 position: relative;
-                left:0;
-                transform: translateX(0%);
                 filter: drop-shadow(0 2px 8px rgba(0,0,0,.16));
                 &:last-child{
                     margin-left: -16px;
@@ -638,7 +700,7 @@ footer{
             left: 20%;
         }
         &.img_foreground_big{
-            width: 450px;
+            width: 88%;
             left: -28%;
             bottom: -24%;
         }
@@ -810,40 +872,49 @@ footer{
                 padding-top: $dimensions;
             }
         }
-        &.depression{
+        &.depression #front_face{
             img{
                 margin-bottom: -32%;
             }
         }
-        &.inflammtion_general{
+        &.inflammtion_general #front_face{
             h4{padding-right: 0;}
         }
-        &.cramps{
+        &.cramps #front_face{
             .image{
-                width: 64%;
+                $dimensions: 72%;
+                width: $dimensions;
+                padding-bottom: $dimensions;
             }
         }
 
         //therapy
-        &.kortison{
-            img{
-                margin-bottom: -16%;
-            }
+        &.kortison #front_face img{ 
+            margin-bottom: -24%; 
         }
-        &.immunsupressiva{
+        &.immunsupressiva #front_face{
+            img.img_foreground_big{
+                width: 80%;
+                left: -32%;
+                bottom: -32%;
+            }
             img.img_main{
                 width: 50%;
                 bottom: -40px;
-
             }
         }
-        &.surgery{
+        &.surgery #front_face{
             h4{padding-right: 0;}
         }
 
         //reasons
         &.genetics{
             .flare{display:none;}
+        }
+        &.infections #front_face{
+            .main_img{ width: 80%;}
+            .middle_img{ width: 72%;}
+            .bg_img{display: none;}
         }
     }
 }
